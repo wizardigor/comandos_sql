@@ -124,3 +124,16 @@ $query_select = "SELECT L.Nome_Livro, A.Nome_autor, E.Nome_Editora, L.Preco_Livr
 
 mysqli_query(setDB(), $query_select) or die("Erro ao selecionar");
 ~~~
+
+## - OPERADOR LIKE
+*O operador **LIKE** é usado para localizar um valor dentro de um campo textual*
+~~~php
+"SELECT campo_da_tabela FROM nome_da_tabela WHERE campo LIKE 'valor'"
+~~~
+
+### EXEMPLOS 1
+~~~php
+"SELECT nome, profissao, endereco FROM pessoas WHERE nome LIKE 'João'"
+~~~
+tambem podemos usar o caractere **%** que será um coringa nas buscas, representando o valor que falta(ou que você não saiba qual é mas pode estar lá)
+
