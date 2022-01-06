@@ -135,5 +135,23 @@ mysqli_query(setDB(), $query_select) or die("Erro ao selecionar");
 ~~~php
 "SELECT nome, profissao, endereco FROM pessoas WHERE nome LIKE 'João'"
 ~~~
-tambem podemos usar o caractere **%** que será um coringa nas buscas, representando o valor que falta(ou que você não saiba qual é mas pode estar lá)
+tambem podemos usar o caractere **%** que será um coringa nas buscas, representando o valor que falta(ou que você não saiba qual é mas pode estar lá).
+No exemplo acima temos **'João'** como valor de busca, veja como se comporta a busca usando esse valor e o **%**
+- **João:** Nesse caso, serão retornados todos os registros que contêm no campo buscado exatamente o "João" informado no filtro. O funcionamento aqui é equivalente a utilizar o operador de igualdade (=);
+- **%João%:** Serão retornados os registros que contêm no campo buscado o **"João"** informado. Por exemplo, podemos buscar os nomes que contêm **"Santos"**, ou que contêm uma sílaba ou letra específica. O registro com nome **"Luis da Silva"**, por exemplo, contém o termo **"da"**, então atenderia ao filtro **'%da%'**;
+- **%Joãp:** Serão retornados os registros cujo valor do campo filtrado termina com o **"João"** informado. O **%**, nesse caso, indica que pode haver qualquer valor no começo do campo, desde que ele termine com o **"João"**. Por exemplo, o registro com nome **"Luis da Silva"** atenderia ao filtro **'%Silva'**;
+- **João%:** Serão retornados os registros cujo valor do campo filtrado começa com o **"João"** informado. Dessa vez, o **%** indica que após o **"João"** pode haver qualquer valor. Por exemplo, o registro com nome **"Luis da Silva"**, atenderia ao filtro **'Luis%'**.
 
+### EXEMPLO 2 (USANDO %)
+~~~php
+SELECT * FROM pessoa WHERE nome LIKE 'J%';
+~~~
+Você tambem pode usar o underscore ou sublinhado **(\_)** e ainda juntar com o **%**. O underscore indica a quantidade de casas/caracteres antes ou depois do texto buscado.
+- **'\_este'**: Filtra os registros que contém 1 caractere qualquer no começo e em seguida o termo **'este'**. Por exemplo, seriam retornados registros contendo o valor **'teste'**, **'peste'**, **'veste'**;
+- **'b_m'**: Filtra os registros que comecem com a letra **"b"**, contenham 1 caractere em seguida, e depois a letra **"m"**. Nesse caso, atenderiam a esse filtro, por exemplo, os valores **"bom"**, **"bem"**, **"bPm"**, etc.
+- **'\_u%'**: Filtra os registros cujo campo especificado comece com um caractere qualquer, em seguida contenha uma letra **"u"**, e depois qualquer valor. Por exemplo, os valores **"Luis da Silva"** e **"Gustavo"** atenderiam a esse filtro.
+
+### EXEMPLO 3 (USANDO \_UNDESCORE)
+~~~php
+SELECT * FROM pessoa WERE nome LIKE '_u%';
+~~~
