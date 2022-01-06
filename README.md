@@ -28,7 +28,6 @@ function setDB(){
 ~~~~
 
 ## - PARA INSERIR DADOS AO BANCO:
-
 ~~~php
 "INSERT INTO nome_da_tabela (campo_da_tabela) VALUE (valor_a_inseriri) WHERE condicao"
 ~~~
@@ -144,7 +143,7 @@ No exemplo acima temos **'João'** como valor de busca, veja como se comporta a 
 
 ### EXEMPLO 2 (USANDO %)
 ~~~php
-SELECT * FROM pessoa WHERE nome LIKE 'J%';
+"SELECT * FROM pessoa WHERE nome LIKE 'J%'"
 ~~~
 Você tambem pode usar o underscore ou sublinhado **(\_)** e ainda juntar com o **%**. O underscore indica a quantidade de casas/caracteres antes ou depois do texto buscado.
 - **'\_este'**: Filtra os registros que contém 1 caractere qualquer no começo e em seguida o termo **'este'**. Por exemplo, seriam retornados registros contendo o valor **'teste'**, **'peste'**, **'veste'**;
@@ -153,5 +152,27 @@ Você tambem pode usar o underscore ou sublinhado **(\_)** e ainda juntar com o 
 
 ### EXEMPLO 3 (USANDO \_UNDESCORE)
 ~~~php
-SELECT * FROM pessoa WERE nome LIKE '_u%';
+"SELECT * FROM pessoa WERE nome LIKE '_u%'"
+~~~
+
+## - OPERADOR IN
+*O operador IN é utilizado quando desejamos consultar uma tabela, filtrando o valor de um de seus campos a partir de uma lista e possibilidades. Enquanto o operador de comparação de igualdade (=) avalia se os dois valores são iguais, o **IN** permite verificar se o valor de um coluna/campo se encontra em uma lista.*
+Sua sintaxe é a seguinte:
+~~~php
+"SELECT colunas/campo FROM tabela WHERE campo IN (valor1, valor2, valor3)"
+~~~
+### EXEMPLO
+~~~php
+"SELECT * FROM pessoa WHERE id IN (2, 3, 7)";
+~~~
+*Nesse caso, filtramos apenas os as registros da tabela **pessoa** que possuem o **id** igual a **2, 3, ou 7.***
+
+## - OPERADOR BETWEEN
+*Esse operador é usado quando precisamos recuperar as linhas de uma tabela cujo valor de um campo encontra-se em um intervalo especificado. Esse tipo de consulta é muito comum quando queremos filtrar os dados por intervalos de datas.*
+~~~php
+"SELECT campos FROM tabela WHERE campo BETWEEN inicio_intervalo AND fim_intervalo"
+~~~
+### EXEMPLO
+~~~php
+"SELECT * FROM pessoa WHERE nascimento BETWEEN '01-01-1981' AND '31-12-1990'";
 ~~~
