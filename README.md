@@ -138,7 +138,7 @@ tambem podemos usar o caractere **%** que será um coringa nas buscas, represent
 No exemplo acima temos **'João'** como valor de busca, veja como se comporta a busca usando esse valor e o **%**
 - **João:** Nesse caso, serão retornados todos os registros que contêm no campo buscado exatamente o "João" informado no filtro. O funcionamento aqui é equivalente a utilizar o operador de igualdade (=);
 - **%João%:** Serão retornados os registros que contêm no campo buscado o **"João"** informado. Por exemplo, podemos buscar os nomes que contêm **"Santos"**, ou que contêm uma sílaba ou letra específica. O registro com nome **"Luis da Silva"**, por exemplo, contém o termo **"da"**, então atenderia ao filtro **'%da%'**;
-- **%Joãp:** Serão retornados os registros cujo valor do campo filtrado termina com o **"João"** informado. O **%**, nesse caso, indica que pode haver qualquer valor no começo do campo, desde que ele termine com o **"João"**. Por exemplo, o registro com nome **"Luis da Silva"** atenderia ao filtro **'%Silva'**;
+- **%João:** Serão retornados os registros cujo valor do campo filtrado termina com o **"João"** informado. O **%**, nesse caso, indica que pode haver qualquer valor no começo do campo, desde que ele termine com o **"João"**. Por exemplo, o registro com nome **"Luis da Silva"** atenderia ao filtro **'%Silva'**;
 - **João%:** Serão retornados os registros cujo valor do campo filtrado começa com o **"João"** informado. Dessa vez, o **%** indica que após o **"João"** pode haver qualquer valor. Por exemplo, o registro com nome **"Luis da Silva"**, atenderia ao filtro **'Luis%'**.
 
 ### EXEMPLO 2 (USANDO %)
