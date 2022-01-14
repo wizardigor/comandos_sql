@@ -53,7 +53,7 @@ mysqli_query(setDB(), $query_select) or die("Erro ao selecionar");
 
 ## - ALTERAR UMA INFORMAÇÃO DO BANCO DE DADOS:
 ~~~php
-"UPDATE nome_da_tabela SET campo_da_tabela WHERE condicao "
+"UPDATE nome_da_tabela SET campo_da_tabela = 'novo_valor' WHERE condicao "
 ~~~
 
 ### EXEMPLO:
